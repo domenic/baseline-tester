@@ -20,10 +20,13 @@
   },
   "dependencies": {
     "glob": "^4.3.1",
-    "mocha": "^2.0.1"
+    "mocha": "1.21.4"
   },
   "devDependencies": {
     "jscs": "^1.8.1",
     "jshint": "^2.5.10"
+  },
+  "_dependencyComments": {
+    "mocha": "keeping at 1.21.4 until https://github.com/mochajs/mocha/issues/1241 is fixed"
   }
 }
