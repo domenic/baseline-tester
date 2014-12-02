@@ -1,0 +1,29 @@
+{
+  "name": "baseline-tester",
+  "description": "Runs a function against given inputs and tests the result against baseline outputs",
+  "keywords": [
+    "tests",
+    "testing",
+    "baseline",
+    "comparison"
+  ],
+  "version": "1.0.0-pre",
+  "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
+  "license": "WTFPL",
+  "repository": "domenic/baseline-tester",
+  "main": "lib/baseline-tester.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "lint": "jshint lib && jscs lib"
+  },
+  "dependencies": {
+    "glob": "^4.3.1",
+    "mocha": "^2.0.1"
+  },
+  "devDependencies": {
+    "jscs": "^1.8.1",
+    "jshint": "^2.5.10"
+  }
+}
