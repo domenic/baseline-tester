@@ -44,3 +44,15 @@ baselineTester(md2html, {
 ## Trimming
 
 It's common to want to ignore leading or trailing whitespace when comparing against the baseline files. baseline-tester will do this by default, but you can turn it off by specifying `--trim=none` on the command line or `trim: "none"` programmatically.
+
+## Testing Exceptions
+
+If you want to test that your function throws certain exceptions, you can use a slightly modified setup. On the command line, pass the additional option `--exceptions`; when used programmatically, pass the additional option `checkExceptions: true`.
+
+For example, if you stored your exceptional cases under `test/exceptions` with the exception messages being given extension `.txt`, you could do
+
+```
+$ baseline-tester lib/md2html.js --exceptions --cases test/exceptions --input md --output txt
+```
+
+Exception messages are checked against the message: i.e., are the contents of the "output" file equal to the exception's `message` property (modulo potential trimming).

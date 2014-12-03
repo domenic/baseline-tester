@@ -6,7 +6,7 @@ var baselineTester = require("..");
 var packageJson = require("../package.json");
 
 var usage = packageJson.description + "\n\n" + packageJson.name +
-            " <main-module> --cases=<folder> --input=<ext> --output=<ext> [--trim=none]";
+            " <main-module> [--exceptions] --cases=<folder> --input=<ext> --output=<ext> [--trim=none]";
 var argv = require("yargs")
     .usage(usage, {
         cases: {
@@ -32,9 +32,15 @@ var argv = require("yargs")
         },
         trim: {
             description: "whether to trim before comparing; \"none\" or \"both\"",
+            type: "string",
             alias: "t",
             requiresArg: true,
             default: "both"
+        },
+        exceptions: {
+            description: "tests for exception messages instead of return values",
+            type: "boolean",
+            alias: "e"
         }
     })
     .require(1, "Missing required module file argument")
@@ -48,5 +54,6 @@ baselineTester(func, {
     casesDirectory: argv.cases,
     inputExtension: argv.input,
     outputExtension: argv.output,
-    trim: argv.trim
+    trim: argv.trim,
+    checkExceptions: argv.exceptions
 });
